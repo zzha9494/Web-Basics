@@ -10,11 +10,31 @@
   <body>
     <form method="get" action="">
       <div id="searchBox">
-
+        <div id="searchBoxLeft">
+          <input type="search" name="q" placeholder="Keyword" />
+          <input type="submit" value="Search" />
+          <input list="category" name="category" placeholder="Category" />
+          <datalist id="category">
+            <option value="Math"></option>
+            <option value="Art"></option>
+            <option value="Science History"></option>
+            <option value="Action and Adventure"></option>
+            <option value="Health"></option>
+            <option value="Science Fiction"></option>
+          </datalist>
+          <input type="button" value="Filter" />
+          <label>
+            <input type="checkbox" id="darkmode" name="darkmode" />Dark Mode
+          </label>
+        </div>
+        <div id="searchBoxRight">
+          <input type="button" value="Add to cart" />
+          <input type="button" value="Reset the cart" />
+          <img id="cart" src="images\shopping_cart.png" alt="Shopping Cart" />
+					<p>(0)</p>
+        </div>
       </div>
-      <div id="listBox">
-         
-      </div>
+      <div id="listBox"></div>
     </form>
   </body>
 </html>

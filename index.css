@@ -22,6 +22,7 @@ div#listBox {
 }
 div#searchBox {
   margin-top: 1em;
+  overflow: auto;
 }
 div#listBox {
   margin-top: 1em;
@@ -57,4 +58,30 @@ caption {
   padding: 0.5em 0.5em;
   font-weight: bold;
   font-size: 1.2em;
+}
+
+label {
+  font-family: Arial, sans-serif;
+}
+
+#darkmode {
+   vertical-align:middle; 
+}
+
+#searchBoxLeft {
+  float: left;
+}
+
+#searchBoxRight {
+  float: right;
+}
+
+#cart {
+  width: 20px;
+  height: 20px;
+  vertical-align:middle; 
+}
+
+#searchBoxRight p{
+   display: inline;
 }
