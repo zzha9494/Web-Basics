@@ -11,9 +11,19 @@
     <form method="get" action="">
       <div id="searchBox">
         <div id="searchBoxLeft">
-          <input type="search" name="q" placeholder="Title Keyword" id="keyWord"/>
+          <input
+            type="search"
+            name="q"
+            placeholder="Title Keyword"
+            id="keyWord"
+          />
           <input type="submit" value="Search" id="search" />
-          <input list="category" name="category" placeholder="Category" />
+          <input
+            list="category"
+            name="category"
+            placeholder="Category"
+            id="categoryInput"
+          />
           <datalist id="category">
             <option value="Math"></option>
             <option value="Art"></option>
@@ -22,7 +32,7 @@
             <option value="Health"></option>
             <option value="Science Fiction"></option>
           </datalist>
-          <input type="button" value="Filter" />
+          <input type="button" value="Filter" id="filter" />
           <label>
             <input type="checkbox" id="darkmode" name="darkmode" />Dark Mode
           </label>

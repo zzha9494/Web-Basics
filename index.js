@@ -20,8 +20,8 @@ window.onload = function () {
     if (keyWord) {
       var hasResult = false;
       for (let i = 0; i < titles.length; i++) {
-        var elem = titles[i]; // reset
-        elem.parentNode.style.backgroundColor = "transparent";
+        var elem = titles[i];
+        elem.parentNode.style.backgroundColor = "transparent"; // reset
         if (elem.innerHTML.toLowerCase().indexOf(keyWord.toLowerCase()) != -1) {
           elem.parentNode.style.backgroundColor = "green";
           hasResult = true;
@@ -29,10 +29,34 @@ window.onload = function () {
       }
       if (!hasResult) alert("No items found."); // boundary case
     } else {
-      alert("Please input keyword."); // boundary case
       // can clear the highlighted color here.
+      for (let i = 0; i < titles.length; i++) {
+        titles[i].parentNode.style.backgroundColor = "transparent";
+      }
+      alert("Please input keyword."); // boundary case
     }
   });
+
+  // filter
+  var filterButton = (document.getElementById("filter").onclick = function () {
+    var categories = document.querySelectorAll(".category");
+    var category = document.getElementById("categoryInput").value.trim();
+    if (category) {
+      // show here filter
+      for (let i = 0; i < categories.length; i++) {
+        if (categories[i].innerHTML.toLowerCase() != category.toLowerCase()) {
+          categories[i].parentNode.style.display = "none";
+        }
+      }
+    } else {
+      // show all
+      for (let i = 0; i < categories.length; i++) {
+        categories[i].parentNode.style.display = "table-row";
+      }
+    }
+  });
+
+  // add book
 };
 
 function getJsonObject(path, success, error) {
@@ -102,6 +126,7 @@ function loadBooks() {
         td.setAttribute("class", "ratings");
       } else {
         if (j == 2) td.setAttribute("class", "title");
+        else if (j == 8) td.setAttribute("class", "category");
         var text = document.createTextNode(bookList[i][tdKey[j]]);
         td.appendChild(text);
       }
