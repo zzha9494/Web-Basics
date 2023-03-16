@@ -11,6 +11,28 @@ window.onload = function () {
       console.error(xhr);
     }
   );
+
+  // search
+  var searchButton = (document.getElementById("search").onclick = function (e) {
+    e.preventDefault(); // type=submit incurs auto refresh
+    var titles = document.querySelectorAll(".title");
+    var keyWord = document.getElementById("keyWord").value.trim();
+    if (keyWord) {
+      var hasResult = false;
+      for (let i = 0; i < titles.length; i++) {
+        var elem = titles[i]; // reset
+        elem.parentNode.style.backgroundColor = "transparent";
+        if (elem.innerHTML.toLowerCase().indexOf(keyWord.toLowerCase()) != -1) {
+          elem.parentNode.style.backgroundColor = "green";
+          hasResult = true;
+        }
+      }
+      if (!hasResult) alert("No items found."); // boundary case
+    } else {
+      alert("Please input keyword."); // boundary case
+      // can clear the highlighted color here.
+    }
+  });
 };
 
 function getJsonObject(path, success, error) {
@@ -79,6 +101,7 @@ function loadBooks() {
         }
         td.setAttribute("class", "ratings");
       } else {
+        if (j == 2) td.setAttribute("class", "title");
         var text = document.createTextNode(bookList[i][tdKey[j]]);
         td.appendChild(text);
       }
