@@ -32,6 +32,7 @@ div#listBox {
 table {
   border: collapse;
   border-spacing: 0;
+  width: 100%;
 }
 
 table tbody td {
@@ -64,8 +65,8 @@ label {
   font-family: Arial, sans-serif;
 }
 
-#darkmode {
-   vertical-align:middle; 
+#darkmodem {
+  vertical-align: middle;
 }
 
 #searchBoxLeft {
@@ -79,9 +80,22 @@ label {
 #cart {
   width: 20px;
   height: 20px;
-  vertical-align:middle; 
+  vertical-align: middle;
 }
 
-#searchBoxRight p{
-   display: inline;
+#searchBoxRight p {
+  display: inline;
+}
+
+/* td img {
+  display: inline;
+} */
+.ratings {
+   white-space: nowrap;
+}
+
+.bookImg {
+  width: 100px;
+  height: 127px;
+  vertical-align: middle;
 }
