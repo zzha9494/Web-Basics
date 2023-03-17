@@ -1,4 +1,5 @@
 window.onload = function () {
+  var bookCount = document.getElementById("bookCount");
   // read json
   bookList = []; // book list container
   getJsonObject(
@@ -57,6 +58,33 @@ window.onload = function () {
   });
 
   // add book
+  var addButton = (document.getElementById("add").onclick = function () {
+    var radios = document.getElementsByName("select");
+    var selectedItem;
+    for (let i = 0; i < radios.length; i++) {
+      if (radios[i].checked) {
+        selectedItem = radios[i];
+        break;
+      }
+    }
+    if (!selectedItem) {
+      alert("No selected item found.");
+      return;
+    }
+    var quantity = prompt("Item quantity?", 1);
+    if (!quantity) {
+      return;
+    } else {
+      var temp =
+        parseInt(
+          bookCount.innerHTML.substring(1, bookCount.innerHTML.length - 1)
+        ) + parseInt(quantity);
+      bookCount.innerHTML = "(" + temp + ")";
+      selectedItem.checked = false;
+    }
+  });
+
+  // reset
 };
 
 function getJsonObject(path, success, error) {
