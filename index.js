@@ -85,6 +85,11 @@ window.onload = function () {
   });
 
   // reset
+  var resetButton = (document.getElementById("reset").onclick = function () {
+    if (confirm("Is it okay to reset the cart?")) {
+      bookCount.innerHTML = "(0)";
+    }
+  });
 };
 
 function getJsonObject(path, success, error) {
