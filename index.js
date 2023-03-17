@@ -22,9 +22,11 @@ window.onload = function () {
       var hasResult = false;
       for (let i = 0; i < titles.length; i++) {
         var elem = titles[i];
-        elem.parentNode.style.backgroundColor = "transparent"; // reset
+        elem.parentNode.style.backgroundColor = ""; // reset
         if (elem.innerHTML.toLowerCase().indexOf(keyWord.toLowerCase()) != -1) {
-          elem.parentNode.style.backgroundColor = "green";
+          if (!darkModeButton.checked)
+            elem.parentNode.style.backgroundColor = "PowderBlue";
+          else elem.parentNode.style.backgroundColor = "DarkSlateGray";
           hasResult = true;
         }
       }
@@ -90,6 +92,36 @@ window.onload = function () {
       bookCount.innerHTML = "(0)";
     }
   });
+
+  // dark mode
+  var darkModeButton = document.getElementById("darkmode");
+  darkModeButton.onclick = function () {
+    var highlighted = document.querySelectorAll("tr[style]");
+    for (let i = 0; i < highlighted.length; i++) {
+      if (highlighted[i].style.backgroundColor == "powderblue")
+        highlighted[i].style.backgroundColor = "DarkSlateGray";
+      else highlighted[i].style.backgroundColor = "powderblue";
+    }
+
+    if (darkModeButton.checked) {
+      document.body.style.backgroundColor = "grey";
+      document.getElementById("searchBox").style.backgroundColor = "grey";
+      document.getElementById("listBox").style.backgroundColor = "grey";
+      document.getElementsByTagName("thead")[0].style.backgroundColor = "grey";
+      document.getElementsByTagName("caption")[0].style.backgroundColor =
+        "grey";
+      document.body.style.color = "Cornsilk";
+    } else {
+      document.body.style.backgroundColor = "";
+      document.getElementById("searchBox").style.backgroundColor = "#ebf4fb";
+      document.getElementById("listBox").style.backgroundColor = "#fafcff";
+      document.getElementsByTagName("thead")[0].style.backgroundColor =
+        "#ebf4fb";
+      document.getElementsByTagName("caption")[0].style.backgroundColor =
+        "#95bef0";
+      document.body.style.color = "";
+    }
+  };
 };
 
 function getJsonObject(path, success, error) {
