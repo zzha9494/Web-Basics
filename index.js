@@ -71,11 +71,11 @@ window.onload = function () {
     }
     if (!selectedItem) {
       alert("No selected item found.");
-      return;
+      return; // boundary case
     }
     var quantity = prompt("Item quantity?", 1);
     if (!quantity) {
-      return;
+      return; // boundary case
     } else {
       var temp =
         parseInt(
