@@ -34,7 +34,7 @@ window.onload = function () {
     } else {
       // can clear the highlighted color here.
       for (let i = 0; i < titles.length; i++) {
-        titles[i].parentNode.style.backgroundColor = "transparent";
+        titles[i].parentNode.style.backgroundColor = "";
       }
       alert("Please input keyword."); // boundary case
     }
